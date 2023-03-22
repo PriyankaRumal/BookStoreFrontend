@@ -1,0 +1,14 @@
+.SignUpmain{
+    width: 22vw;
+    height: 48vh;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    padding-left: 20px;
+    margin-top: -10px;
+}
+.firstname,.emailSingUp,.passSingUp,.mobileNo,.buttonsignup{
+    width:85%;
+    height: 15%;
+}

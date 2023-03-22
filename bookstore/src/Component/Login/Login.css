@@ -1,0 +1,28 @@
+.mainlogin{
+    width:22vw;
+    height:48vh;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw;
+    justify-content:space-evenly;
+}
+.email{
+    width:85%;
+    height: 15%;
+    /* border: 1px solid red; */
+}
+.password{
+    width:85%;
+    height: 15%;
+    /* border: 1px solid red; */
+}
+.buttonlogin{
+    width: 85%;
+    height: 15%;
+    /* border: 1px solid red; */
+}
+.facebook{
+    width: 85%;
+    display: flex;
+}
