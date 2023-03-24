@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../SignUp/SignUp.css';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
+import { SignUpApi } from "../../Services/userservices";
 
 const nameRegex = /^([A-Z]{1}[a-z,A-Z]{2,})$/;
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
@@ -65,6 +66,16 @@ function SignUp(props){
         }
         else if(mobileRegex.test(enterDetail.mobile_Number)===true){
             setUserRegix(preState =>({...preState,mobileerror:false,mobilehelper:''}))
+        }
+
+        if(userRegix.fnamerror === false && userRegix.emailerror === false && userRegix.passworderror === false && userRegix.mobileerror === false){
+            SignUpApi(enterDetail)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
         }
     }
      

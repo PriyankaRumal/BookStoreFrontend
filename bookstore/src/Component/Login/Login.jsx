@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import '../Login/Login.css';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
+import { SignInApi } from "../../Services/userservices";
+import { useNavigate } from "react-router-dom";
 
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
@@ -47,6 +49,21 @@ function Login(){
         else if(passTest===true){
             setuserRegix(preState =>({...preState,passMsg:false,passHelper:''}))
         }
+
+        if (emailTest === true && passTest === true) {
+            SignInApi(userDetails)
+                .then(response => {
+                    console.log(response)
+                    localStorage.setItem('token',response.data.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+     }
+     let navigate = useNavigate();
+     const navToForget=()=>{
+        navigate('/forgetpassword')
      }
     return(
         <div>
@@ -66,7 +83,9 @@ function Login(){
                 error={userRegix.passMsg}
                 helperText={userRegix.passHelper}
                 id="outlined-basic" variant="outlined" style={{width:'20vw',fontSize:'12px'}} size='small'/>
-                <div style={{ display: 'flex', justifyContent: 'end', cursor: 'pointer' ,fontSize: '12px', color:'#9D9D9D'}}>Forget Password?</div>
+                <div
+                onClick={navToForget}
+                style={{ display: 'flex', justifyContent: 'end', cursor: 'pointer' ,fontSize: '12px', color:'#9D9D9D'}}>Forget Password?</div>
                 </div>
                 <div className="buttonlogin">
                 <Button 
@@ -75,17 +94,21 @@ function Login(){
                     Login
                 </Button>
                 </div>
-                <div style={{display: 'flex',justifyContent:'center'}} className="or">
-                     Or
+                <div className="Ornline">
+                <div style={{ width: '5vw', height: '2px', backgroundColor: ' #E4E4E4', marginTop: '22px' }}></div>
+                    <h4 style={{ marginTop: '8px',marginLeft:'-1vw' }}>OR</h4>
+                    <div style={{ width: '5vw', height: '2px', backgroundColor: ' #E4E4E4', marginTop: '22px',marginLeft:'-1vw' }}></div>
                 </div>
+                
+                {/* <div style={{ width: '5vw', height: '2px', backgroundColor: 'red', marginTop: '22px' }}></div> */}
                 <div className="facebook">
                     <div className="btn1">
-                    <Button size="small" variant="contained" style={{ textTransform: 'none', fontSize: '15px', marginRight: '0.5vw', width: '9.9vw', backgroundColor: '#4266B2' }}>
+                    <Button size="small" variant="contained" style={{ textTransform: 'none', fontSize: '15px', marginRight: '0.5vw', marginTop:'-2vw', width: '9.9vw', backgroundColor: '#4266B2' }}>
                         FaceBook
                     </Button>
                     </div>
                     <div className="btn2">
-                    <Button size="small" variant="outlined" style={{ textTransform: 'none', fontSize: '15px', width: '9.9vw', backgroundColor: '#F5F5F5', borderColor: '#E4E4E4', color: '#0A0102' }}>
+                    <Button size="small" variant="outlined" style={{ textTransform: 'none', fontSize: '15px', width: '9.9vw', marginTop:'-2vw', backgroundColor: '#F5F5F5', borderColor: '#E4E4E4', color: '#0A0102' }}>
                         Google
                     </Button>
                     </div>
