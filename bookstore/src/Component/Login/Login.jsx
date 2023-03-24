@@ -30,6 +30,10 @@ function Login(){
         passMsg:false,
         passHelper:""
     })
+    let navigate = useNavigate();
+     const navToForget=()=>{
+        navigate('/forgetpassword')
+     }
 
      const loginbtn=()=>{
         console.log(userDetails)
@@ -55,16 +59,14 @@ function Login(){
                 .then(response => {
                     console.log(response)
                     localStorage.setItem('token',response.data.data)
+                     navigate('/dashboard')
                 })
                 .catch(error => {
                     console.log(error)
                 })
         }
      }
-     let navigate = useNavigate();
-     const navToForget=()=>{
-        navigate('/forgetpassword')
-     }
+     
     return(
         <div>
             <div className="mainlogin">

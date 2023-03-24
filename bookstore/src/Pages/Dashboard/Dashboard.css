@@ -1,0 +1,27 @@
+.dashmain{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dashSec{
+    width: 80%;
+    height: 10%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Books{
+    font-size: 24px;
+}
+.books{
+    width: 80%;
+    height: auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:10px;
+}

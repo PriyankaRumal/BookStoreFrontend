@@ -1,0 +1,62 @@
+.MainHeader{
+    width:100vw;
+    height: 8vh;
+    border:  1px solid #8F2B2F;
+    background-color: #A03037;
+    display: flex;
+    align-items: center;
+}
+.imglogo{
+    /* font-size: 20px; */
+    /* color: white; */
+    width: 12%;
+    height: 55%;
+    /* border: 1px solid red; */
+    display: flex;
+    /* justify-content:space-evenly ; */
+    margin-left: 10%;
+
+}
+.maintxt{
+     font-size: 20px; 
+     color: white; 
+    margin-left:10px;
+}
+.searchbar{
+    width: 39%;
+    height: 65%;
+    /* border: solid green;   */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* border: solid gray; */
+    border-radius: 2px;
+    background-color: white;
+    margin-left: 10px;
+}
+.profilelogo{
+    width: 8%;
+    height: 100%;
+    border: 1px solid #8F2B2F;
+    display: flex;
+    flex-direction: column;
+    margin-left: 18%;
+}
+.profile{
+    color:  #F5F5F5;
+    margin-top: -5px;
+    font-size: 12px;
+}
+.Cartlogo{
+    width: 8%;
+    height: 100%;
+    border: 1px solid #8F2B2F;
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 18%; */
+}
+.cart{
+    color:  #F5F5F5;
+    margin-top: -5px;
+    font-size: 12px;
+}
