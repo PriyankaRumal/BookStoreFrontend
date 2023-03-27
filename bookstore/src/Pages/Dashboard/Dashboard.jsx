@@ -22,8 +22,8 @@ function Dashboard(){
             <Header/>
             <div className="dashSec">
                 <div className="Books">Books</div>
-                <div className="selector">
-                    <select name="Items" id="BooksCategory">
+                <div className="selector" >
+                    <select name="Items" className="leftSelector" >
                         <option  >Sort by relevence</option>
                         <option value="Price: Low to High">Price: Low to High</option>
                         <option value="Price: High to Low">Price: High to Low</option>

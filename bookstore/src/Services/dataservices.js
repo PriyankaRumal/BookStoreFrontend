@@ -7,3 +7,8 @@ export const GetallBook=()=>{
     const response=axios.get(`${BaseUrl}/GetAllBook `,headerConfig)
     return response
 }
+
+export const GetBookById=(bookId)=>{
+    const response=axios.get(`${BaseUrl}/GetBookByID?BookId=${bookId} `,headerConfig)
+    return response
+}

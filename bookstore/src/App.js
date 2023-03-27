@@ -10,6 +10,7 @@ import Header from './Component/Header/Header';
 import Book1 from './Component/BookBox/Book1';
 import WishList from './Component/WishList/Wishlist';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Book2 from './Component/BookBox2/Book2';
 
 function App() {
   return (
@@ -20,11 +21,12 @@ function App() {
       {/* <SignUp/> */}
       {/* <ForgetPassword/> */}
       {/* <ResetPassword/> */}
-      {/* <Router1/> */}
+      <Router1/>
       {/* <Header/> */}
       {/* <Book1/> */}
-      <WishList/>
+      {/* <WishList/> */}
       {/* <Dashboard/> */}
+      {/* <Book2/> */}
     </div>
   );
 }
