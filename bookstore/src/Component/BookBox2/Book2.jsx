@@ -10,6 +10,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
 import { GetBookById } from "../../Services/dataservices";
 import { useNavigate } from "react-router-dom";
+import { AddToCart } from "../../Services/dataservices";
 
 function Book2() {
     const [value, setValue] = React.useState(2);
@@ -32,6 +33,22 @@ function Book2() {
         navigate('/dashboard')
       }
 
+      const cartdata = {"bookId":0,"book_Count":0}
+      let navigate1=useNavigate();
+      const movetocartpage=()=>{
+        cartdata.bookId=Number(localStorage.getItem("bookId"))
+        cartdata.book_Count=1
+        AddToCart(cartdata)
+        .then((response) => {
+            console.log(response)
+            localStorage.setItem("cartId", response.data.data)
+            navigate1('/cart')
+          })
+          .catch((error) => { console.log(error) })
+        console.log(" add to cart successful")
+      }
+      
+        
     return (
         <div className="mainBook2">
             <Header />
@@ -46,6 +63,7 @@ function Book2() {
                     </div>
                     <div className="buttonsofbook">
                         <Button
+                          onClick={movetocartpage}
                             className="AddToButton" size="small" variant="contained" style={{ width: '48%', height: '90%', fontSize: '14px', backgroundColor: '#A03037', textTransform: 'none', borderRadius: '2px' }}>
                             ADD TO BAG
                         </Button>

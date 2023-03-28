@@ -11,6 +11,8 @@ import Book1 from './Component/BookBox/Book1';
 import WishList from './Component/WishList/Wishlist';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Book2 from './Component/BookBox2/Book2';
+import WishListPage from './Component/WishListPage/Wishlistpage';
+import Cart from './Component/Cart/Cart';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
       {/* <WishList/> */}
       {/* <Dashboard/> */}
       {/* <Book2/> */}
+      {/* <WishListPage/> */}
+      {/* <Cart/> */}
     </div>
   );
 }
