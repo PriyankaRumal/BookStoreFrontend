@@ -12,33 +12,46 @@ function Cart(){
     // const gotofrontpage=()=>{
     //     navigate('/')
     // }
-    useEffect(() => {
+
+    const getAllCart=()=>{
         GetAllCart()
-            .then((response) => {
-                console.log(response)
-                setCartArray(response.data.data)
-            }).catch((error) => { console.log(error) })
+        .then((response) => {
+            console.log(response)
+            setCartArray(response.data.data)
+        }).catch((error) => { console.log(error) })
+    }
+    const autoRefresh = () => {
+        getAllCart()
+    }
+    useEffect(() => {
+        getAllCart()
     }, [])
 
-    const deleteCart=()=>{
-        console.log(cartArray)
-        console.log(cartArray.cartId)
-        Removefromcart(cartArray.cartId)
+    const deleteCart=(cartId)=>{
+        console.log("Cart Id is",cartId)
+      //  console.log(cartArray.cartId)
+        Removefromcart(cartId)
         .then(response => {
             console.log(response)
            // localStorage.setItem('token',response.data.data)
            //  navigate('/dashboard')
+           autoRefresh();
         })
         .catch(error => {
             console.log(error)
         })
+    }
+
+    let navigate=useNavigate();
+    const  movetoBookSummary=()=>{
+        navigate('/BookSummary')
     }
     
     return(
         <div className="maincartdiv">
             <Header/>
             <div className="BookNHomeCart">
-                <div className="home3">Home/</div>
+                <div className="home3" onClick={movetoBookSummary}>Home/</div>
                 <div className="CartTitle">My Cart</div>
             </div>
             <div className="thirdcartCn">
@@ -62,7 +75,7 @@ function Cart(){
                      cartArray.map((cart) => (
                     <div className="leftimg">
                         <div className="imgpartcart">
-                            <img style={{width:'80%',height:'80%',}} src="https://public-v2links.adobecc.com/d096df37-ca37-4026-553f-8cfa6bec09ec/component?params=component_id%3A10fa5960-ae05-4a11-9365-133f07ce7183&params=version%3A0&token=1680068989_da39a3ee_45411e1d0da09e760a8797d3fcf6a6635603d79e&api_key=CometServer1" alt="" />
+                            <img style={{width:'80%',height:'80%',}} src="https://public-v2links.adobecc.com/d096df37-ca37-4026-553f-8cfa6bec09ec/component?params=component_id%3Abbe1fb99-6426-4256-a6d4-e80680f5665d&params=version%3A0&token=1680232944_da39a3ee_ed973141813b2dd15d76bdb5d528dc88c5418e4a&api_key=CometServer1" alt="" />
                         </div>
                         <div className="detailscart">
                             <div className="cartTitle">Dont Make Me Think</div>
@@ -77,8 +90,8 @@ function Cart(){
                                    <button style={{width:'40%',height:'70%' ,border:'1px solid #DBDBDB',backgroundColor:'#FAFAFA'}}>1</button>
                                    <button style={{ border:'1px solid #DBDBDB', borderRadius:'50%',fontSize:'15px'}}>+</button>
                                 </div>
-                                 <div onClick={deleteCart}
-                                 className="remod" style={{fontSize:'14px',marginLeft:'20px'}}>Remove</div>
+                                 <div onClick={()=>deleteCart(cart.cartId)}
+                                 className="remod" style={{fontSize:'14px',marginLeft:'20px',cursor:'pointer'}}>Remove</div>
                             </div>
                         </div>
                     </div>

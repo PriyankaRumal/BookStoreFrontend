@@ -8,12 +8,13 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
-import { GetBookById } from "../../Services/dataservices";
+import { GetBookById, GetWishlistApi } from "../../Services/dataservices";
 import { useNavigate } from "react-router-dom";
-import { AddToCart } from "../../Services/dataservices";
+import { AddToCart,AddToWishlist } from "../../Services/dataservices";
 
 function Book2() {
     const [value, setValue] = React.useState(2);
+    console.log(value)
     const [bookDetail, setBookDetail] =useState([]);
     const bookId=JSON.parse(localStorage.getItem("bookId"));
     console.log(bookDetail)
@@ -48,13 +49,28 @@ function Book2() {
         console.log(" add to cart successful")
       }
       
+      const Wishlistdata = {"bookId":0}
+      let navigate2=useNavigate()
+      const movetoWishlist=()=>{
+        Wishlistdata.bookId=Number(localStorage.getItem("bookId"))
+        console.log(Wishlistdata.bookId)
+        AddToWishlist(Wishlistdata.bookId)
+        .then((response) => {
+            console.log(response)
+            localStorage.setItem("wishListId", response.data.data)
+            navigate2('/wishlist')
+          })
+          .catch((error) => { console.log(error) })
+        console.log(" add to wishlist successful")
+       
+      }
         
     return (
         <div className="mainBook2">
             <Header />
             <div className="BookNHome">
                 <div className="home1" onClick={navtohome}>Home/</div>
-                <div className="booktitle">Book(01)</div>
+                <div className="booktitle">Book({bookDetail.bookId})</div>
             </div>
             <div className="secdiv">
                 <div className="bookContainer2">
@@ -68,12 +84,13 @@ function Book2() {
                             ADD TO BAG
                         </Button>
                         <Button
+                            onClick={movetoWishlist}
                             className="AddToButton" size="small" variant="contained" style={{
                                 width: '48%', height: '90%', fontSize: '14px', backgroundColor: '#333333',
                                 textTransform: 'none', borderRadius: '2px'
                             }}>
                             <FavoriteIcon fontSize="small" style={{marginRight:'10px'}}/>
-                            WishList
+                            WISHLIST
                         </Button>
                     </div>
                 </div>
@@ -88,7 +105,7 @@ function Book2() {
                             <div className="count">{bookDetail.book_Count}</div>
                         </div>
                         <div className="pricebook2">
-                            <div className="price2"> {bookDetail.price}</div>
+                            <div className="price2"> Rs. {bookDetail.price}</div>
                             <div className="oriprice2">{bookDetail.discount_Price}</div>
                         </div>
                     </div>

@@ -13,6 +13,8 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Book2 from './Component/BookBox2/Book2';
 import WishListPage from './Component/WishListPage/Wishlistpage';
 import Cart from './Component/Cart/Cart';
+import { Table } from '@mui/material';
+import Table1 from './Component/TableBox/Table';
 
 function App() {
   return (
@@ -23,7 +25,7 @@ function App() {
       {/* <SignUp/> */}
       {/* <ForgetPassword/> */}
       {/* <ResetPassword/> */}
-      <Router1/>
+      {/* <Router1/> */}
       {/* <Header/> */}
       {/* <Book1/> */}
       {/* <WishList/> */}
@@ -31,6 +33,8 @@ function App() {
       {/* <Book2/> */}
       {/* <WishListPage/> */}
       {/* <Cart/> */}
+      {/* <Table/> */}
+      <Table1/>
     </div>
   );
 }
