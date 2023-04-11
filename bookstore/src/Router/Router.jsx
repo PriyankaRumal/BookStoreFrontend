@@ -7,6 +7,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import Book2 from "../Component/BookBox2/Book2";
 import Cart from "../Component/Cart/Cart";
 import WishListPage from "../Component/WishListPage/Wishlistpage";
+import OrderBook from "../Component/Order/OrderBook";
 function Router1(){
     return(
         <div>
@@ -19,7 +20,8 @@ function Router1(){
                     <Route path= '/BookSummary' element ={<Book2/>} />
                     <Route path= '/cart' element ={ <Cart/>} />
                     <Route path= '/wishlist' element ={ <WishListPage/>} />
-    
+                    <Route path= '/order' element ={<OrderBook/>} />
+                    
                 </Routes>
               
             </Router>

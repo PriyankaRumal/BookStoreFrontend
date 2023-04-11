@@ -40,3 +40,27 @@ export const Removefromwishlist=(wishListId)=>{
     const response=axios.delete(`${BaseUrlWishlist}/Delete?WishListId=${wishListId} `,headerConfig)
     return response
 }
+const BaseUrlFeedback="https://localhost:44345/api/Feedback"
+export const GetAllFeedbackApi=(bookId)=>{
+    const response=axios.get(`${BaseUrlFeedback}/Getfeedback?BookId=${bookId} `,headerConfig)
+    return response
+}
+
+export const GiveFeedbackApi=(data)=>{
+    const response=axios.post(`${BaseUrlFeedback}/GiveFeedback `,data,headerConfig)
+    return response
+}
+const BaseUrlOrder="https://localhost:44345/api/Order"
+export const GetAllOrder=()=>{
+    const response=axios.get(`${BaseUrlOrder}/GetAllOrdersec`,headerConfig)
+    return response
+}
+
+export const AddToOrder=(data)=>{
+    const response=axios.post(`${BaseUrlOrder}/AddOrder`,data,headerConfig)
+    return response
+}
+export const cancelOrderApi=(OrderId)=>{
+    const response=axios.delete(`${BaseUrlOrder}/CancelOrder?OrderId=${OrderId} `,headerConfig)
+    return response
+}

@@ -15,6 +15,9 @@ import WishListPage from './Component/WishListPage/Wishlistpage';
 import Cart from './Component/Cart/Cart';
 import { Table } from '@mui/material';
 import Table1 from './Component/TableBox/Table';
+import OrderBook from './Component/Order/OrderBook';
+import AddrressComp1 from './Component/Address/AdrressComp1';
+import AdrressComp2 from './Component/Address/AdrressComp2';
 
 function App() {
   return (
@@ -25,7 +28,7 @@ function App() {
       {/* <SignUp/> */}
       {/* <ForgetPassword/> */}
       {/* <ResetPassword/> */}
-      {/* <Router1/> */}
+      <Router1/>
       {/* <Header/> */}
       {/* <Book1/> */}
       {/* <WishList/> */}
@@ -34,7 +37,10 @@ function App() {
       {/* <WishListPage/> */}
       {/* <Cart/> */}
       {/* <Table/> */}
-      <Table1/>
+      {/* <Table1/> */}
+      {/* <OrderBook/> */}
+      {/* <AddrressComp1/> */}
+      {/* <AdrressComp2/> */}
     </div>
   );
 }

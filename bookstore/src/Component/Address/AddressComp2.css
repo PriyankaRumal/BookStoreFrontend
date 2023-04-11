@@ -1,0 +1,81 @@
+.Maincontaineraddress{
+    width: 59vw;
+    height: 70vh;
+    /* border:  solid green; */
+    border: 1px solid #DCDCDC;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 2vh;
+}
+.headerAddress{
+    width: 100%;
+    height: 15%;
+    /* border: solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.CustomerDetails{
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 10%;
+    /* position: relative; */
+    /* left: 15px; */
+}
+.fullnameaddress{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    width: 100%;
+    /* border: solid red; */
+    text-align: start;
+    margin-left: 7%;
+}
+.fullname{
+    text-align: start;
+    width: 30%;
+    height: 60%;
+    /* border: 1px solid green ; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 2.9%;
+}
+.mobilenumberaddress{
+    text-align: start;
+    width: 30%;
+    height: 60%;
+    margin-left: 5%;
+    /* border: 1px solid green ; */
+    /* border: 1px solid red; */
+    /* position: relative; */
+    /* left: -240px; */
+}
+.cityTown{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 10%;
+    
+}
+.addressaddress{
+    margin-left: 10%;
+
+}
+.mobilenumberaddress1{
+    position: relative;
+    left: -480px;
+}
+
+.radioIcon{
+    margin-left: 10%;
+
+}
+.continuebuttom{
+    margin-left: 80%;
+
+}
+

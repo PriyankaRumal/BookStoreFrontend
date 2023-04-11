@@ -4,9 +4,19 @@ import Header from "../Header/Header";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { GetAllCart, Removefromcart } from "../../Services/dataservices";
+import { GetAllCart, Removefromcart ,AddToOrder} from "../../Services/dataservices";
+import AddrressComp1 from "../Address/AdrressComp1";
+import AdrressComp2 from "../Address/AdrressComp2";
 function Cart(){
     const [cartArray, setCartArray] = useState([])
+    const [toggle,setToggle]=useState(false)
+
+    const toggling=()=>{
+        setToggle(true)
+    }
+    const toggling2=()=>{
+        setToggle(false)
+    }
     console.log(cartArray)
     // let navigate=useNavigate();
     // const gotofrontpage=()=>{
@@ -46,7 +56,23 @@ function Cart(){
     const  movetoBookSummary=()=>{
         navigate('/BookSummary')
     }
-    
+    let navigate1=useNavigate();
+    const orderAdd = { "addressId": 0, "bookId": 0,"bookQuantity":0 }
+    const navigatetoOrderPage=()=>{
+        orderAdd.addressId = 2
+        orderAdd.bookId = Number(localStorage.getItem("bookId"))
+        orderAdd.bookQuantity = 1
+        AddToOrder(orderAdd)
+            .then((response) => {
+                console.log(response)
+                localStorage.setItem("orderId", response.data.data)
+                navigate1('/order')
+            })
+            .catch((error) => { console.log(error) })
+        console.log(" add to order successful")
+       
+    }
+   
     return(
         <div className="maincartdiv">
             <Header/>
@@ -99,10 +125,20 @@ function Cart(){
                 </div>
                      
                 <div className="btncart">
-                <Button size="small" variant="outlined" style={{ textTransform: 'none', fontSize: '12px', width: '11vw',height:'55%', backgroundColor: '#3371B5', color: '#FCFCFC' ,borderRadius:'2px',marginRight:'4.5%'}}>
+                <Button size="small" variant="outlined" style={{ textTransform: 'none', fontSize: '12px', width: '11vw',height:'55%', backgroundColor: '#3371B5', color: '#FCFCFC' ,borderRadius:'2px',marginRight:'4.5%',
+                marginBottom:'1%'}}
+                onClick={navigatetoOrderPage}
+                >
                         PLACE ORDER
                     </Button>
                 </div>
+                
+                  
+            </div>
+            <div className="thirddiv" style={{marginTop:'20px',marginLeft:'-15%'}}>
+            {
+                    toggle ? <AdrressComp2 toggling2={toggling2}/> :<AddrressComp1 toggling={toggling}/>
+                  }
             </div>
         </div>
     )

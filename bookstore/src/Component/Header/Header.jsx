@@ -10,7 +10,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
         <>
         <div className="MainHeader">
            <div className="imglogo">
-            <img src="https://public-v2links.adobecc.com/d096df37-ca37-4026-553f-8cfa6bec09ec/component?params=component_id%3A9a358a4d-815f-4096-94c5-ad3000359044&params=version%3A0&token=1680232944_da39a3ee_ed973141813b2dd15d76bdb5d528dc88c5418e4a&api_key=CometServer1" alt="" />
+            <img src="https://public-v2links.adobecc.com/d096df37-ca37-4026-553f-8cfa6bec09ec/component?params=component_id%3Aa5b33713-5c6d-45cb-8c64-81e6721d4f29&params=version%3A0&token=1680672454_da39a3ee_6458f09b5c649210e2cac3e09220abe30f5daace&api_key=CometServer1" alt="" />
             <div className="maintxt">BookStore</div>
            </div>
            <div className="searchbar">

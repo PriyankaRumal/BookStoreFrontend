@@ -1,0 +1,10 @@
+.mainAddComp1{
+    width:  59vw;
+    height: 10vh;
+    border: 1px solid #DCDCDC;
+    color: #333232;
+    display: flex;
+    justify-content:flex-start;
+    padding-left: 12px;
+    align-items: center;
+}
